@@ -7,18 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC33744329792BC600BF3D6C /* QR_CashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33744229792BC600BF3D6C /* QR_CashApp.swift */; };
-		DC33744529792BC600BF3D6C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33744429792BC600BF3D6C /* ContentView.swift */; };
+		DC091D3B29840AE600F84D47 /* AmountInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D3A29840AE600F84D47 /* AmountInputView.swift */; };
+		DC091D3D298410B400F84D47 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D3C298410B400F84D47 /* CommonViews.swift */; };
+		DC091D412985283500F84D47 /* AtmCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D402985283500F84D47 /* AtmCodeView.swift */; };
+		DC091D432985972700F84D47 /* AtmCodeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D422985972700F84D47 /* AtmCodeDataModel.swift */; };
+		DC091D452985982600F84D47 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D442985982600F84D47 /* Operation.swift */; };
+		DC091D472985A00000F84D47 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D462985A00000F84D47 /* Properties.swift */; };
+		DC091D4A29864DDA00F84D47 /* WithdrawErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */; };
+		DC091D4E29878A4600F84D47 /* DataModelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4D29878A4600F84D47 /* DataModelStatus.swift */; };
+		DC091D502987AD2100F84D47 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4F2987AD2100F84D47 /* Response.swift */; };
+		DC33744329792BC600BF3D6C /* QRCashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33744229792BC600BF3D6C /* QRCashApp.swift */; };
+		DC33744529792BC600BF3D6C /* OperationChooseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33744429792BC600BF3D6C /* OperationChooseView.swift */; };
 		DC33744729792BC700BF3D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC33744629792BC700BF3D6C /* Assets.xcassets */; };
 		DC33744A29792BC700BF3D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC33744929792BC700BF3D6C /* Preview Assets.xcassets */; };
+		DC5EA4DA297A92A90027B25E /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */; };
+		DC5EA4DC297A93160027B25E /* DepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4DB297A93160027B25E /* DepositView.swift */; };
+		DC5EA4DF297A9C080027B25E /* CardSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4DE297A9C080027B25E /* CardSummary.swift */; };
+		DC5EA4E3297AA23A0027B25E /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4E2297AA23A0027B25E /* HttpMethod.swift */; };
+		DC5EA4E5297AA2570027B25E /* RestApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4E4297AA2570027B25E /* RestApiRequest.swift */; };
+		DC5EA4E8297AACA30027B25E /* QRCashService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4E7297AACA30027B25E /* QRCashService.swift */; };
+		DC5EA4EB297AB3BA0027B25E /* HeaderConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4EA297AB3BA0027B25E /* HeaderConsts.swift */; };
+		DC5EA4ED297AB4C90027B25E /* SessionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4EC297AB4C90027B25E /* SessionData.swift */; };
+		DC5EA4F0297AB5EC0027B25E /* CardListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4EF297AB5EC0027B25E /* CardListDataModel.swift */; };
+		DC5EA4F32980FE180027B25E /* CardSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F22980FE180027B25E /* CardSelectView.swift */; };
+		DC5EA4F52980FE840027B25E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F42980FE840027B25E /* Colors.swift */; };
+		DC5EA4F7298104FB0027B25E /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F6298104FB0027B25E /* TestData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC091D3A29840AE600F84D47 /* AmountInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountInputView.swift; sourceTree = "<group>"; };
+		DC091D3C298410B400F84D47 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
+		DC091D402985283500F84D47 /* AtmCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCodeView.swift; sourceTree = "<group>"; };
+		DC091D422985972700F84D47 /* AtmCodeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCodeDataModel.swift; sourceTree = "<group>"; };
+		DC091D442985982600F84D47 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		DC091D462985A00000F84D47 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawErrorView.swift; sourceTree = "<group>"; };
+		DC091D4D29878A4600F84D47 /* DataModelStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelStatus.swift; sourceTree = "<group>"; };
+		DC091D4F2987AD2100F84D47 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		DC33743F29792BC600BF3D6C /* QR Cash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Cash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC33744229792BC600BF3D6C /* QR_CashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QR_CashApp.swift; sourceTree = "<group>"; };
-		DC33744429792BC600BF3D6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC33744229792BC600BF3D6C /* QRCashApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCashApp.swift; sourceTree = "<group>"; };
+		DC33744429792BC600BF3D6C /* OperationChooseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationChooseView.swift; sourceTree = "<group>"; };
 		DC33744629792BC700BF3D6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC33744929792BC700BF3D6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
+		DC5EA4DB297A93160027B25E /* DepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositView.swift; sourceTree = "<group>"; };
+		DC5EA4DE297A9C080027B25E /* CardSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSummary.swift; sourceTree = "<group>"; };
+		DC5EA4E2297AA23A0027B25E /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		DC5EA4E4297AA2570027B25E /* RestApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiRequest.swift; sourceTree = "<group>"; };
+		DC5EA4E7297AACA30027B25E /* QRCashService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCashService.swift; sourceTree = "<group>"; };
+		DC5EA4EA297AB3BA0027B25E /* HeaderConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderConsts.swift; sourceTree = "<group>"; };
+		DC5EA4EC297AB4C90027B25E /* SessionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionData.swift; sourceTree = "<group>"; };
+		DC5EA4EF297AB5EC0027B25E /* CardListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataModel.swift; sourceTree = "<group>"; };
+		DC5EA4F22980FE180027B25E /* CardSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectView.swift; sourceTree = "<group>"; };
+		DC5EA4F42980FE840027B25E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DC5EA4F6298104FB0027B25E /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC091D3929825E3F00F84D47 /* const */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4F42980FE840027B25E /* Colors.swift */,
+				DC091D462985A00000F84D47 /* Properties.swift */,
+			);
+			path = const;
+			sourceTree = "<group>";
+		};
+		DC091D4B2986504400F84D47 /* error */ = {
+			isa = PBXGroup;
+			children = (
+				DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */,
+			);
+			path = error;
+			sourceTree = "<group>";
+		};
+		DC091D4C298789B700F84D47 /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				DC091D4D29878A4600F84D47 /* DataModelStatus.swift */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
 		DC33743629792BC600BF3D6C = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +118,12 @@
 		DC33744129792BC600BF3D6C /* QR Cash */ = {
 			isa = PBXGroup;
 			children = (
-				DC33744229792BC600BF3D6C /* QR_CashApp.swift */,
-				DC33744429792BC600BF3D6C /* ContentView.swift */,
+				DC5EA4EE297AB5C10027B25E /* data_model */,
+				DC5EA4E6297AAC880027B25E /* service */,
+				DC5EA4E0297AA20C0027B25E /* http */,
+				DC5EA4DD297A9BE80027B25E /* model */,
+				DC33744229792BC600BF3D6C /* QRCashApp.swift */,
+				DC5EA4D8297A928A0027B25E /* view */,
 				DC33744629792BC700BF3D6C /* Assets.xcassets */,
 				DC33744829792BC700BF3D6C /* Preview Content */,
 			);
@@ -63,8 +134,88 @@
 			isa = PBXGroup;
 			children = (
 				DC33744929792BC700BF3D6C /* Preview Assets.xcassets */,
+				DC5EA4F6298104FB0027B25E /* TestData.swift */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DC5EA4D8297A928A0027B25E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DC091D4B2986504400F84D47 /* error */,
+				DC091D3929825E3F00F84D47 /* const */,
+				DC5EA4F12980FDE30027B25E /* common */,
+				DC33744429792BC600BF3D6C /* OperationChooseView.swift */,
+				DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */,
+				DC5EA4DB297A93160027B25E /* DepositView.swift */,
+				DC091D402985283500F84D47 /* AtmCodeView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DC5EA4DD297A9BE80027B25E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4DE297A9C080027B25E /* CardSummary.swift */,
+				DC5EA4EC297AB4C90027B25E /* SessionData.swift */,
+				DC091D442985982600F84D47 /* Operation.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DC5EA4E0297AA20C0027B25E /* http */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4E9297AB39D0027B25E /* const */,
+				DC5EA4E1297AA2160027B25E /* enum */,
+				DC5EA4E4297AA2570027B25E /* RestApiRequest.swift */,
+				DC091D4F2987AD2100F84D47 /* Response.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		DC5EA4E1297AA2160027B25E /* enum */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4E2297AA23A0027B25E /* HttpMethod.swift */,
+			);
+			path = enum;
+			sourceTree = "<group>";
+		};
+		DC5EA4E6297AAC880027B25E /* service */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4E7297AACA30027B25E /* QRCashService.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		DC5EA4E9297AB39D0027B25E /* const */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4EA297AB3BA0027B25E /* HeaderConsts.swift */,
+			);
+			path = const;
+			sourceTree = "<group>";
+		};
+		DC5EA4EE297AB5C10027B25E /* data_model */ = {
+			isa = PBXGroup;
+			children = (
+				DC091D4C298789B700F84D47 /* enum */,
+				DC091D422985972700F84D47 /* AtmCodeDataModel.swift */,
+				DC5EA4EF297AB5EC0027B25E /* CardListDataModel.swift */,
+			);
+			path = data_model;
+			sourceTree = "<group>";
+		};
+		DC5EA4F12980FDE30027B25E /* common */ = {
+			isa = PBXGroup;
+			children = (
+				DC091D3C298410B400F84D47 /* CommonViews.swift */,
+				DC5EA4F22980FE180027B25E /* CardSelectView.swift */,
+				DC091D3A29840AE600F84D47 /* AmountInputView.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +288,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC33744529792BC600BF3D6C /* ContentView.swift in Sources */,
-				DC33744329792BC600BF3D6C /* QR_CashApp.swift in Sources */,
+				DC5EA4E5297AA2570027B25E /* RestApiRequest.swift in Sources */,
+				DC091D4A29864DDA00F84D47 /* WithdrawErrorView.swift in Sources */,
+				DC5EA4EB297AB3BA0027B25E /* HeaderConsts.swift in Sources */,
+				DC5EA4E8297AACA30027B25E /* QRCashService.swift in Sources */,
+				DC091D3D298410B400F84D47 /* CommonViews.swift in Sources */,
+				DC091D4E29878A4600F84D47 /* DataModelStatus.swift in Sources */,
+				DC33744529792BC600BF3D6C /* OperationChooseView.swift in Sources */,
+				DC5EA4DA297A92A90027B25E /* WithdrawalView.swift in Sources */,
+				DC5EA4F7298104FB0027B25E /* TestData.swift in Sources */,
+				DC5EA4F0297AB5EC0027B25E /* CardListDataModel.swift in Sources */,
+				DC091D472985A00000F84D47 /* Properties.swift in Sources */,
+				DC091D452985982600F84D47 /* Operation.swift in Sources */,
+				DC33744329792BC600BF3D6C /* QRCashApp.swift in Sources */,
+				DC5EA4ED297AB4C90027B25E /* SessionData.swift in Sources */,
+				DC091D412985283500F84D47 /* AtmCodeView.swift in Sources */,
+				DC5EA4F52980FE840027B25E /* Colors.swift in Sources */,
+				DC5EA4F32980FE180027B25E /* CardSelectView.swift in Sources */,
+				DC091D432985972700F84D47 /* AtmCodeDataModel.swift in Sources */,
+				DC5EA4DC297A93160027B25E /* DepositView.swift in Sources */,
+				DC091D3B29840AE600F84D47 /* AmountInputView.swift in Sources */,
+				DC091D502987AD2100F84D47 /* Response.swift in Sources */,
+				DC5EA4E3297AA23A0027B25E /* HttpMethod.swift in Sources */,
+				DC5EA4DF297A9C080027B25E /* CardSummary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,10 +12,19 @@ class CardListDataModel: ObservableObject, Statused {
         guard status == .initializing else { return }
         status = .loading
         
-        qrCashService.start(sessionData: sessionData) { accountSummary in
-            self.status = .done
-            self.setCards(accountSummary?.accounts.flatMap({$0.cards}) ?? [])
-        }
+        let response: Call<AccountSummary> = qrCashService.start(sessionData: sessionData)
+        
+        response.onResult = handleAccountSummaryResult
+        response.onError = handleRequestError
+    }
+    
+    private func handleAccountSummaryResult(accountSummary: AccountSummary) {
+        status = .done
+        setCards(accountSummary.accounts.flatMap({ $0.cards }))
+    }
+    
+    private func handleRequestError(error: Error) {
+        status = .error
     }
     
     func setCards(_ cards: [Card]) {

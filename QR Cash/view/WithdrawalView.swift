@@ -2,11 +2,33 @@ import Foundation
 import SwiftUI
 
 
-struct WithdrawalView: View {
+struct WithdrawalParentView: View {
     let sessionData: SessionData
     
     @StateObject
     private var dataModel = CardListDataModel()
+    
+    var body: some View {
+        Group {
+            switch dataModel.status {
+            case .done:
+                WithdrawalView(sessionData: sessionData, dataModel: dataModel)
+            case .loading, .initializing:
+                ProgressView()
+            default:
+                WithdrawErrorView()
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            dataModel.getCards(sessionData: sessionData)
+        }
+    }
+}
+
+struct WithdrawalView: View {
+    let sessionData: SessionData
+    let dataModel: CardListDataModel
     
     @State
     private var amount: Decimal?
@@ -16,12 +38,12 @@ struct WithdrawalView: View {
     
     private var atmCodeViewLink: some View {
         operationIsValid
-        ? AtmCodeView(
+        ? AtmCodeParentView(
             sessionData: sessionData,
             card: dataModel.selectedCard!,
             amount: amount!,
             codeLength: Properties.atmCodeLength
-        ).navigationBarBackButtonHidden(true)
+        )
         : nil
     }
     
@@ -46,32 +68,21 @@ struct WithdrawalView: View {
     }
     
     var body: some View {
-        NavigationView {
-            switch dataModel.status {
-            case .done:
-                GeometryReader { reader in
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            header
-                            
-                            CardSelectView(dataModel: dataModel)
-                            AmountInputView(amountChangeListener: onAmountChange)
-                            
-                            CommonViews.withdrawalTroublesHotline
-                            continueButton
-                        }
-                        .padding(16)
-                        .frame(minHeight: reader.size.height)
-                    }
+        GeometryReader { reader in
+            ScrollView {
+                VStack(alignment: .leading) {
+                    CommonViews.navigationBack
+                    header
+                    
+                    CardSelectView(dataModel: dataModel)
+                    AmountInputView(amountChangeListener: onAmountChange)
+                    
+                    CommonViews.withdrawalTroublesHotline
+                    continueButton
                 }
-            case .loading, .initializing:
-                ProgressView()
-            default:
-                WithdrawErrorView()
+                .padding(16)
+                .frame(minHeight: reader.size.height)
             }
-        }
-        .onAppear {
-            dataModel.getCards(sessionData: sessionData)
         }
     }
     
@@ -86,6 +97,6 @@ struct WithdrawalView: View {
 
 struct WithdrawalView_Previews: PreviewProvider {
     static var previews: some View {
-        WithdrawalView(sessionData: TestData.sessionData)
+        WithdrawalView(sessionData: TestData.sessionData, dataModel: CardListDataModel())
     }
 }

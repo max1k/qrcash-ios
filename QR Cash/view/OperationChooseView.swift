@@ -5,18 +5,17 @@ struct OperationChooseView: View {
     let sessionData = SessionData(uncId: "1234567", mdmId: "6543210", atmId: "6665551")
     
     var body: some View {
-        NavigationView {
-            VStack {
-                OperationChooseHeaderView()
-                
-                OperationTypeView(sessionData: sessionData)
-                
-                OperationChooseFooterView()
-                
-                Spacer()
-            }
-            .padding(16)
+        VStack {
+            OperationChooseHeaderView()
+            
+            OperationTypeView(sessionData: sessionData)
+            
+            OperationChooseFooterView()
+            
+            Spacer()
         }
+        .navigationBarBackButtonHidden(true)
+        .padding(16)
     }
 }
 
@@ -26,7 +25,7 @@ struct OperationTypeView: View {
     
     var body: some View {
         HStack {
-            NavigationLink(destination: WithdrawalView(sessionData: sessionData)) {
+            NavigationLink(destination: WithdrawalParentView(sessionData: sessionData)) {
                 ZStack(alignment: .topLeading) {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(Colors.lightGray)
@@ -133,7 +132,7 @@ struct OperationChooseFooterView: View {
             .padding(.bottom, 8)
         }
         
-        Text("Если у вас возникли проблемы со снятием или внесением наличных, звоните по номеру: [8 800 100-24-24](phone:88001002424)")
+        Text("Если у вас возникли проблемы со снятием или внесением наличных, звоните по номеру: [8 800 100-24-24](tel://88001002424)")
     }
 }
 

@@ -24,14 +24,14 @@ class QRCashService {
             HeaderConsts.userSessionHeaderName: UUID().description]
     }
     
-    func start(sessionData: SessionData, onLoad: @escaping (AccountSummary?) -> Void) {
+    func start(sessionData: SessionData) -> Call<AccountSummary> {
         let headers = getHeaders(sessionData)
         
         let request: RestApiRequest<AccountSummary> = RestApiRequest(url: URL(string: baseUrl + startUri)!, httpMethod: .get, headers: headers)
-        request.execute(withCompletion: onLoad)
+        return request.execute()
     }
     
-    func createOperation(request: OperationRequest, sessionData: SessionData, onLoad: @escaping (OperationResponse?) -> Void) {
+    func createOperation(request: OperationRequest, sessionData: SessionData) -> Call<OperationResponse> {
         let headers = getHeaders(sessionData)
         
         let request: RestApiRequest<OperationResponse> = RestApiRequest(
@@ -41,6 +41,6 @@ class QRCashService {
             body: request
         )
         
-        request.execute(withCompletion: onLoad)
+        return request.execute()
     }
 }

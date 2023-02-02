@@ -7,32 +7,38 @@ struct WithdrawErrorView: View {
             Image("errorIcon")
                 .resizable()
                 .frame(width: 64, height: 64)
-                .foregroundColor(.red)
                 .padding([.top, .bottom], 40)
+                .foregroundColor(.black)
             
             Text("Невозможно снять наличные")
                 .font(.system(size: 22))
                 .fontWeight(.bold)
                 .padding(.bottom, 8)
+                .foregroundColor(.black)
             
             Text("Позвоните в банк, чтобы узнать подробнее")
                 .font(.system(size: 16))
-                .foregroundColor(.secondary)
+                .foregroundColor(.gray)
                 .padding(.bottom, 48)
         }
     }
     
     private var whatsNextSection: some View {
-        Group {
+        VStack {
             Text("Что делать дальше?")
                 .font(.system(size: 24))
                 .fontWeight(.bold)
+                .foregroundColor(.black)
                 .padding(.top, 24)
                 .padding(.bottom, 8)
             
-            Text("Пожалуйста, обратитесь в банк по телефону\n8 800 100-24-24 за подробной информацией.")
+            Text("Пожалуйста, обратитесь в банк по телефону [8 800 100 24 24](tel://88001002424) за подробной информацией.")
                 .font(.system(size: 16))
-                .padding(16)
+                .foregroundColor(.black)
+                .multilineTextAlignment(.leading)
+                .lineLimit(3, reservesSpace: true)
+                .padding([.leading, .trailing], 16)
+                .padding(.bottom, 8)
             
             Rectangle()
                 .frame(height: 1)
@@ -80,27 +86,26 @@ struct WithdrawErrorView: View {
     }
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .center) {
-                headerSection
+        VStack() {
+            headerSection
+            
+            ZStack(alignment: .top) {
+                RoundedRectangle(cornerRadius: 24)
+                    .foregroundColor(.white)
                 
-                ZStack(alignment: .top) {
-                    RoundedRectangle(cornerRadius: 24)
-                        .foregroundColor(.white)
+                VStack {
+                    whatsNextSection
                     
-                    VStack {
-                        whatsNextSection
-                        
-                        callUsItem
-                        
-                        doneButton
-                    }
+                    callUsItem
+                    
+                    doneButton
                 }
-                
             }
-            .background(Colors.bgLightGray)
-            .edgesIgnoringSafeArea(.bottom)
+            
         }
+        .background(Colors.bgLightGray)
+        .edgesIgnoringSafeArea(.bottom)
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -11,14 +11,23 @@ class AtmCodeDataModel: ObservableObject, Statused {
         guard status == .initializing else { return }
         status = .loading
         
-        qrCashService.createOperation(request: request, sessionData: sessionData) { response in
-            if ((response?.success ?? false) && (response?.orderId != nil)) {
-                self.status = .done
-                self.orderId = response?.orderId
-            } else {
-                self.status = .error
-            }
+        let call: Call<OperationResponse> = qrCashService.createOperation(request: request, sessionData: sessionData)
+        
+        call.onResult = handleOperationCreate
+        call.onError = handleRequestError
+    }
+    
+    private func handleOperationCreate(response: OperationResponse) {
+        if response.success && response.orderId != nil {
+            status = .done
+            orderId = response.orderId
+        } else {
+            status = .error
         }
+    }
+    
+    private func handleRequestError(error: Error) {
+        status = .error
     }
     
     func atmCodeCheck(atmCode: String, sessionData: SessionData) {

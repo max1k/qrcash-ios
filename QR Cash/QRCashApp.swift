@@ -4,7 +4,9 @@ import SwiftUI
 struct QR_CashApp: App {
     var body: some Scene {
         WindowGroup {
-            OperationChooseView()
+            NavigationView {
+                OperationChooseView()
+            }
         }
     }
 }

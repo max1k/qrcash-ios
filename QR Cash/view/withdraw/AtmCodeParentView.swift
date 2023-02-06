@@ -55,6 +55,9 @@ struct ATMCodeInputView: View {
     @State
     private var code: String = ""
     
+    @FocusState
+    private var codeFocused: Bool
+    
     var header: some View {
         Text("Введите код с экрана\nбанкомата")
             .font(.system(size: 22))
@@ -73,6 +76,12 @@ struct ATMCodeInputView: View {
                     .keyboardType(.numberPad)
                     .multilineTextAlignment(.center)
                     .onChange(of: code, perform: onCodeChange)
+                    .focused($codeFocused)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+                          self.codeFocused = true
+                        }
+                    }
                 
                 Rectangle()
                     .frame(height: 1)
@@ -117,7 +126,6 @@ struct ATMCodeInputView: View {
                 )
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
     
     private func onCodeChange(_ newValue: String) {

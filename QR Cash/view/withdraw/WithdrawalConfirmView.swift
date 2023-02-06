@@ -4,7 +4,8 @@ struct WithdrawalConfirmView: View {
     let sessionData: SessionData
     let operation: OperationWithCommission
     
-    let dataModel: WithdrawalConfirmDataModel = WithdrawalConfirmDataModel();
+    @StateObject
+    private var dataModel: WithdrawalConfirmDataModel = WithdrawalConfirmDataModel();
     
     var header: some View {
         Text("Подтвердите снятие наличных")
@@ -29,46 +30,55 @@ struct WithdrawalConfirmView: View {
         }
     }
     
+    var withdrawalDetails: some View {
+        ScrollView(showsIndicators: false) {
+            header
+            cardSection
+            
+            DetailView(header: "Сумма снятия", value: operation.operation.amount.description + ",00 ₽")
+            DetailView(header: "Комиссия", value: operation.commission.description + ",00 ₽")
+            DetailView(header: "Номер банкомата", value: "12584")
+            DetailView(header: "Адрес", value: "г. Москва, наб. Космодамианская, д. 52")
+            
+            CommonViews.withdrawalTroublesHotline
+                .padding(.bottom, 36)
+            
+            Button {
+                let request = WithdrawalConfirmationRequest(orderId: operation.operation.orderId)
+                dataModel.confirmOperation(confirmRequest: request, sessionData: sessionData)
+            } label: {
+                switch dataModel.status {
+                case .initializing:
+                    Text("Подтвердить")
+                        .font(.system(size: 16))
+                        .padding([.top, .bottom], 8)
+                        .frame(maxWidth: .infinity)
+                case .loading:
+                    ProgressView()
+                default:
+                    EmptyView()
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .padding(.bottom, 24)
+        }
+    }
+    
     var body: some View {
-        VStack {
-            CommonViews.navigationClose
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.bottom, 8)
-            
-            
-            ScrollView {
-                header
-                cardSection
+        NavigationStack {
+            VStack {
+                CommonViews.navigationClose
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.bottom, 8)
                 
-                DetailView(header: "Сумма снятия", value: operation.operation.amount.description + ",00 ₽")
-                DetailView(header: "Комиссия", value: operation.commission.description + ",00 ₽")
-                DetailView(header: "Номер банкомата", value: "12584")
-                DetailView(header: "Адрес", value: "г. Москва, наб. Космодамианская, д. 52")
-                
-                CommonViews.withdrawalTroublesHotline
-                    .padding(.bottom, 36)
-                
-                Button {
-                    let request = WithdrawalConfirmationRequest(orderId: operation.operation.orderId)
-                    dataModel.confirmOperation(confirmRequest: request, sessionData: sessionData)
-                } label: {
-                    switch dataModel.status {
-                    case .initializing:
-                        Text("Подтвердить")
-                            .font(.system(size: 16))
-                            .padding([.top, .bottom], 8)
-                    case .loading:
-                        ProgressView()
-                    default:
+                withdrawalDetails
+                    .navigationDestination(isPresented: $dataModel.operationIsConfirmed) {
                         EmptyView()
                     }
-                }
-                .buttonStyle(.borderedProminent)
-                .padding(.bottom, 24)
             }
+            .padding([.leading, .trailing], 16)
+            .navigationBarBackButtonHidden(true)
         }
-        .padding([.leading, .trailing], 16)
-        .navigationBarBackButtonHidden(true)
     }
 }
 

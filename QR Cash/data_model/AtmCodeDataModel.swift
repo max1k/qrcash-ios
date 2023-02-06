@@ -8,7 +8,6 @@ class AtmCodeDataModel: ObservableObject {
     @Published var codeCheckIsPassed: Bool = false
     
     
-    
     func atmCodeCheck(atmCodeRequest: AtmCodeRequest, sessionData: SessionData) {
         guard checkStatus != .loading else { return }
         checkStatus = .loading

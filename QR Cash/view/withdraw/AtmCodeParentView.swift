@@ -94,31 +94,29 @@ struct ATMCodeInputView: View {
     }
     
     var body: some View {
-        VStack(alignment: .center) {
-            CommonViews.navigationClose
-                .frame(maxWidth: .infinity, alignment: .leading)
-            header
-            codeInputField
-            atmLocationSection
-            CommonViews.withdrawalTroublesHotline
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom, 16)
-            
-            if (dataModel.checkStatus == .done) {
-                NavigationLink(
-                    destination: WithdrawalConfirmView(
-                        sessionData: sessionData,
-                        operation: OperationWithCommission(
-                            operation: operation,
-                            commission: dataModel.checkResponse!.commission!
-                        )
-                    ),
-                    isActive: $dataModel.codeCheckIsPassed,
-                    label: { EmptyView() }
+        NavigationStack {
+            VStack(alignment: .center) {
+                CommonViews.navigationClose
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                header
+                codeInputField
+                atmLocationSection
+                CommonViews.withdrawalTroublesHotline
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .padding(.bottom, 16)
+                
+            }
+            .padding([.leading, .trailing], 16)
+            .navigationDestination(isPresented: $dataModel.codeCheckIsPassed) {
+                WithdrawalConfirmView(
+                    sessionData: sessionData,
+                    operation: OperationWithCommission(
+                        operation: operation,
+                        commission: dataModel.checkResponse?.commission ?? 0
+                    )
                 )
             }
         }
-        .padding([.leading, .trailing], 16)
         .navigationBarBackButtonHidden(true)
     }
     

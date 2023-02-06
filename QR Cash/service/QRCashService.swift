@@ -9,6 +9,8 @@ class QRCashService {
     
     private let startUri = "/start"
     private let createUri = "/create"
+    private let atmCheckUri = "/atm-code/check"
+    private let withdrawalConfirmUri = "/cash-withdrawal/confirm"
 
     
     
@@ -24,6 +26,22 @@ class QRCashService {
             HeaderConsts.userSessionHeaderName: UUID().description]
     }
     
+    private func apiPostCall<Request: Encodable, Response: Decodable>(
+        requestBody: Request,
+        sessionData: SessionData,
+        url: String
+    ) -> Call<Response> {
+        
+        let request: RestApiRequest<Response> = RestApiRequest(
+            url: URL(string: url)!,
+            httpMethod: .post,
+            headers: getHeaders(sessionData),
+            body: requestBody
+        )
+        
+        return request.execute()
+    }
+    
     func start(sessionData: SessionData) -> Call<AccountSummary> {
         let headers = getHeaders(sessionData)
         
@@ -31,16 +49,15 @@ class QRCashService {
         return request.execute()
     }
     
-    func createOperation(request: OperationRequest, sessionData: SessionData) -> Call<OperationResponse> {
-        let headers = getHeaders(sessionData)
-        
-        let request: RestApiRequest<OperationResponse> = RestApiRequest(
-            url: URL(string: baseUrl + createUri)!,
-            httpMethod: .post,
-            headers: headers,
-            body: request
-        )
-        
-        return request.execute()
+    func createOperation(operationRequest: OperationRequest, sessionData: SessionData) -> Call<OperationResponse> {
+        return apiPostCall(requestBody: operationRequest, sessionData: sessionData, url: baseUrl + createUri)
+    }
+    
+    func atmCodeCheck(atmCodeRequest: AtmCodeRequest, sessionData: SessionData) -> Call<AtmCodeResponse> {
+        return apiPostCall(requestBody: atmCodeRequest, sessionData: sessionData, url: baseUrl + atmCheckUri)
+    }
+    
+    func withdrawalConfirm(request: WithdrawalConfirmationRequest, sessionData: SessionData ) -> Call<WithdrawalConfirmationResponse> {
+        return apiPostCall(requestBody: request, sessionData: sessionData, url: baseUrl + withdrawalConfirmUri)
     }
 }

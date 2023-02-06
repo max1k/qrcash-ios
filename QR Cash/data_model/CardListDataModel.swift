@@ -12,10 +12,9 @@ class CardListDataModel: ObservableObject, Statused {
         guard status == .initializing else { return }
         status = .loading
         
-        let response: Call<AccountSummary> = qrCashService.start(sessionData: sessionData)
-        
-        response.onResult = handleAccountSummaryResult
-        response.onError = handleRequestError
+        let _ = qrCashService.start(sessionData: sessionData)
+            .onResult(handleAccountSummaryResult)
+            .onError(handleRequestError)
     }
     
     private func handleAccountSummaryResult(accountSummary: AccountSummary) {

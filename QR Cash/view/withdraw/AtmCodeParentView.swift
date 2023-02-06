@@ -7,7 +7,7 @@ struct AtmCodeParentView: View {
     let codeLength: Int
     
     @StateObject
-    private var dataModel: AtmCodeDataModel = AtmCodeDataModel()
+    private var dataModel: OperationCreationDataModel = OperationCreationDataModel()
     
     var body: some View {
         Group {
@@ -15,9 +15,13 @@ struct AtmCodeParentView: View {
             case .done:
                 ATMCodeInputView(
                     sessionData: sessionData,
-                    card: card, amount: amount,
-                    codeLength: codeLength,
-                    dataModel: dataModel
+                    operation: Operation(
+                        card: card,
+                        type: .withdraw,
+                        orderId: dataModel.orderId!,
+                        amount: amount
+                    ),
+                    codeLength: codeLength
                 )
             case .loading, .initializing:
                 ProgressView()
@@ -42,10 +46,11 @@ struct AtmCodeParentView: View {
 
 struct ATMCodeInputView: View {
     let sessionData: SessionData
-    let card: Card
-    let amount: Decimal
+    let operation: Operation
     let codeLength: Int
-    let dataModel: AtmCodeDataModel
+    
+    @StateObject
+    private var dataModel: AtmCodeDataModel = AtmCodeDataModel()
     
     @State
     private var code: String = ""
@@ -61,17 +66,26 @@ struct ATMCodeInputView: View {
     
     var codeInputField: some View {
         VStack {
-            SecureField("Код", text: $code)
-                .keyboardType(.numberPad)
-                .multilineTextAlignment(.center)
-                .onChange(of: code, perform: onCodeChange)
-            
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(Colors.lightBlue)
-        }
+            let codeIsInvalid = dataModel.checkStatus == .invalidCode
+            let mainColor = codeIsInvalid ? .red : Colors.lightBlue
+            VStack {
+                SecureField("Код", text: $code)
+                    .keyboardType(.numberPad)
+                    .multilineTextAlignment(.center)
+                    .onChange(of: code, perform: onCodeChange)
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(mainColor)
+            }
             .padding([.leading, .trailing], 96)
-            .padding(.bottom, 48)
+            
+            if (codeIsInvalid) {
+                Text("Неправильный код. Осталось попыток: " + (dataModel.checkResponse?.attemptsRemain?.description ?? "0"))
+                    .foregroundColor(mainColor)
+            }
+        }
+        .padding(.bottom, 48)
     }
     
     var atmLocationSection: some View {
@@ -89,6 +103,20 @@ struct ATMCodeInputView: View {
             CommonViews.withdrawalTroublesHotline
                 .frame(maxHeight: .infinity, alignment: .bottom)
                 .padding(.bottom, 16)
+            
+            if (dataModel.checkStatus == .done) {
+                NavigationLink(
+                    destination: WithdrawalConfirmView(
+                        sessionData: sessionData,
+                        operation: OperationWithCommission(
+                            operation: operation,
+                            commission: dataModel.checkResponse!.commission!
+                        )
+                    ),
+                    isActive: $dataModel.codeCheckIsPassed,
+                    label: { EmptyView() }
+                )
+            }
         }
         .padding([.leading, .trailing], 16)
         .navigationBarBackButtonHidden(true)
@@ -96,13 +124,20 @@ struct ATMCodeInputView: View {
     
     private func onCodeChange(_ newValue: String) {
         if (newValue.count == codeLength) {
+            let atmCodeRequest = AtmCodeRequest(orderId: operation.orderId, code: code)
             
+            dataModel.atmCodeCheck(atmCodeRequest: atmCodeRequest, sessionData: sessionData)
+            code = ""
         }
     }
 }
 
 struct AtmCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        ATMCodeInputView(sessionData: TestData.sessionData, card: TestData.card, amount: 100, codeLength: 4, dataModel: AtmCodeDataModel())
+        ATMCodeInputView(
+            sessionData: TestData.sessionData,
+            operation: TestData.withdrawOperation,
+            codeLength: 4
+        )
     }
 }

@@ -1,36 +1,43 @@
 import Foundation
 
 
-class AtmCodeDataModel: ObservableObject, Statused {
+class AtmCodeDataModel: ObservableObject {
     
-    @Published private(set) var orderId: String?
-    @Published private(set) var status: DataModelStatus = .initializing
+    @Published private(set) var checkStatus: AtmCodeStatus = .initializing
+    @Published private(set) var checkResponse: AtmCodeResponse?
+    @Published var codeCheckIsPassed: Bool = false
     
     
-    func createOrder(request: WithdrawalOperationRequest, sessionData: SessionData) {
-        guard status == .initializing else { return }
-        status = .loading
+    
+    func atmCodeCheck(atmCodeRequest: AtmCodeRequest, sessionData: SessionData) {
+        guard checkStatus != .loading else { return }
+        checkStatus = .loading
         
-        let call: Call<OperationResponse> = qrCashService.createOperation(request: request, sessionData: sessionData)
-        
-        call.onResult = handleOperationCreate
-        call.onError = handleRequestError
+        let _ = qrCashService.atmCodeCheck(atmCodeRequest: atmCodeRequest, sessionData: sessionData)
+            .onResult(handleAtmCodeResponse)
+            .onError(handleAtmCodeError)
     }
     
-    private func handleOperationCreate(response: OperationResponse) {
-        if response.success && response.orderId != nil {
-            status = .done
-            orderId = response.orderId
-        } else {
-            status = .error
+    private func handleAtmCodeError(error: Error) {
+        checkStatus = .error
+    }
+    
+    private func handleAtmCodeResponse(response: AtmCodeResponse) {
+        checkResponse = response
+        
+        if (response.success) {
+            checkStatus = .done
+            codeCheckIsPassed = true
+            return
         }
-    }
-    
-    private func handleRequestError(error: Error) {
-        status = .error
-    }
-    
-    func atmCodeCheck(atmCode: String, sessionData: SessionData) {
         
+        if let messageCode = response.messageCode {
+            if (messageCode == .invalidAtmCode) {
+                checkStatus = .invalidCode
+                return
+            }
+        }
+        
+        checkStatus = .error
     }
 }

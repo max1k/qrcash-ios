@@ -6,6 +6,18 @@ enum OperationType: String, Encodable {
     case deposit = "cashDeposit"
 }
 
+struct Operation {
+    let card: Card
+    let type: OperationType
+    let orderId: String
+    let amount: Decimal
+}
+
+struct OperationWithCommission {
+    let operation: Operation
+    let commission: Decimal
+}
+
 //MARK: Operation request
 protocol OperationRequest: Encodable {
     var operationType: OperationType { get }

@@ -25,6 +25,15 @@ class CommonViews {
     static var navigationClose: some View {
         NavigationLink(destination: OperationChooseView()) {
             Image(systemName: "xmark")
+                .foregroundColor(Colors.lightBlue)
         }
+    }
+    
+    static var horizontalDashedLine: some View {
+        Line()
+            .stroke(style: StrokeStyle(lineWidth: 1, dash: [5]))
+            .frame(height: 1)
+            .foregroundColor(Colors.lightBlue)
+            .padding(.top, 0)
     }
 }

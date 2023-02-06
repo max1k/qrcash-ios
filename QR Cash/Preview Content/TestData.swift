@@ -19,4 +19,8 @@ class TestData {
         systemPlacingName: "WWWF",
         cardType: .prepaidCard
     )
+    
+    static let withdrawOperation = Operation(card: card, type: .withdraw, orderId: "111", amount: 100)
+    
+    static let withdrawOperationWithCommission = OperationWithCommission(operation: withdrawOperation, commission: 10.0)
 }

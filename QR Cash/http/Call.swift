@@ -8,27 +8,18 @@ class Call<T: Decodable> {
     private var resultHandler: ((T) -> Void)? = nil
     private var errorHandler: ((Error) -> Void)? = nil
     
-    var onResult: ((T) -> Void)? {
-        set {
-            resultHandler = newValue
-            complete()
-        }
+    func onResult(_ resultHandler: @escaping (T) -> Void) -> Call<T> {
+        self.resultHandler = resultHandler
+        complete()
         
-        get {
-            return resultHandler
-        }
+        return self
     }
     
-    var onError: ((Error) -> Void)? {
-        set {
-            errorHandler = newValue
-            complete()
-        }
+    func onError(_ errorHandler: @escaping (Error) -> Void) -> Call<T> {
+        self.errorHandler = errorHandler
+        complete()
         
-        get {
-            return errorHandler
-        }
-        
+        return self
     }
     
     func complete() {

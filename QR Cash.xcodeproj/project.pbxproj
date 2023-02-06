@@ -32,6 +32,14 @@
 		DC5EA4F32980FE180027B25E /* CardSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F22980FE180027B25E /* CardSelectView.swift */; };
 		DC5EA4F52980FE840027B25E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F42980FE840027B25E /* Colors.swift */; };
 		DC5EA4F7298104FB0027B25E /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4F6298104FB0027B25E /* TestData.swift */; };
+		DCCA6231298BA24900062D8E /* AtmCodeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6230298BA24900062D8E /* AtmCodeStatus.swift */; };
+		DCCA6233298BA2A900062D8E /* AtmCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6232298BA2A900062D8E /* AtmCode.swift */; };
+		DCCA6235298BA49B00062D8E /* ResponseMessageCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6234298BA49B00062D8E /* ResponseMessageCode.swift */; };
+		DCCA6237298BBBF400062D8E /* OperationCreationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6236298BBBF400062D8E /* OperationCreationDataModel.swift */; };
+		DCCA6239298E455500062D8E /* WithdrawalConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6238298E455500062D8E /* WithdrawalConfirmView.swift */; };
+		DCCA623D298EA5E600062D8E /* CardSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA623C298EA5E600062D8E /* CardSummaryView.swift */; };
+		DCCA62412990054800062D8E /* WithdrawalConfirmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA62402990054800062D8E /* WithdrawalConfirmDataModel.swift */; };
+		DCCA6243299005FD00062D8E /* WithdrawalConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA6242299005FD00062D8E /* WithdrawalConfirmation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +69,14 @@
 		DC5EA4F22980FE180027B25E /* CardSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSelectView.swift; sourceTree = "<group>"; };
 		DC5EA4F42980FE840027B25E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		DC5EA4F6298104FB0027B25E /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
+		DCCA6230298BA24900062D8E /* AtmCodeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCodeStatus.swift; sourceTree = "<group>"; };
+		DCCA6232298BA2A900062D8E /* AtmCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCode.swift; sourceTree = "<group>"; };
+		DCCA6234298BA49B00062D8E /* ResponseMessageCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMessageCode.swift; sourceTree = "<group>"; };
+		DCCA6236298BBBF400062D8E /* OperationCreationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCreationDataModel.swift; sourceTree = "<group>"; };
+		DCCA6238298E455500062D8E /* WithdrawalConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalConfirmView.swift; sourceTree = "<group>"; };
+		DCCA623C298EA5E600062D8E /* CardSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSummaryView.swift; sourceTree = "<group>"; };
+		DCCA62402990054800062D8E /* WithdrawalConfirmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalConfirmDataModel.swift; sourceTree = "<group>"; };
+		DCCA6242299005FD00062D8E /* WithdrawalConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalConfirmation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				DC091D4D29878A4600F84D47 /* DataModelStatus.swift */,
+				DCCA6230298BA24900062D8E /* AtmCodeStatus.swift */,
 			);
 			path = enum;
 			sourceTree = "<group>";
@@ -142,13 +159,12 @@
 		DC5EA4D8297A928A0027B25E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				DC091D4B2986504400F84D47 /* error */,
 				DC091D3929825E3F00F84D47 /* const */,
 				DC5EA4F12980FDE30027B25E /* common */,
+				DC091D4B2986504400F84D47 /* error */,
+				DCCA623B298E45B400062D8E /* deposit */,
+				DCCA623A298E459400062D8E /* withdraw */,
 				DC33744429792BC600BF3D6C /* OperationChooseView.swift */,
-				DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */,
-				DC5EA4DB297A93160027B25E /* DepositView.swift */,
-				DC091D402985283500F84D47 /* AtmCodeParentView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -159,6 +175,9 @@
 				DC5EA4DE297A9C080027B25E /* CardSummary.swift */,
 				DC5EA4EC297AB4C90027B25E /* SessionData.swift */,
 				DC091D442985982600F84D47 /* Operation.swift */,
+				DCCA6232298BA2A900062D8E /* AtmCode.swift */,
+				DCCA6234298BA49B00062D8E /* ResponseMessageCode.swift */,
+				DCCA6242299005FD00062D8E /* WithdrawalConfirmation.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -203,7 +222,9 @@
 			children = (
 				DC091D4C298789B700F84D47 /* enum */,
 				DC091D422985972700F84D47 /* AtmCodeDataModel.swift */,
+				DCCA6236298BBBF400062D8E /* OperationCreationDataModel.swift */,
 				DC5EA4EF297AB5EC0027B25E /* CardListDataModel.swift */,
+				DCCA62402990054800062D8E /* WithdrawalConfirmDataModel.swift */,
 			);
 			path = data_model;
 			sourceTree = "<group>";
@@ -214,8 +235,27 @@
 				DC091D3C298410B400F84D47 /* CommonViews.swift */,
 				DC5EA4F22980FE180027B25E /* CardSelectView.swift */,
 				DC091D3A29840AE600F84D47 /* AmountInputView.swift */,
+				DCCA623C298EA5E600062D8E /* CardSummaryView.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		DCCA623A298E459400062D8E /* withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */,
+				DC091D402985283500F84D47 /* AtmCodeParentView.swift */,
+				DCCA6238298E455500062D8E /* WithdrawalConfirmView.swift */,
+			);
+			path = withdraw;
+			sourceTree = "<group>";
+		};
+		DCCA623B298E45B400062D8E /* deposit */ = {
+			isa = PBXGroup;
+			children = (
+				DC5EA4DB297A93160027B25E /* DepositView.swift */,
+			);
+			path = deposit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +329,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5EA4E5297AA2570027B25E /* RestApiRequest.swift in Sources */,
+				DCCA623D298EA5E600062D8E /* CardSummaryView.swift in Sources */,
+				DCCA6235298BA49B00062D8E /* ResponseMessageCode.swift in Sources */,
 				DC091D4A29864DDA00F84D47 /* WithdrawErrorView.swift in Sources */,
 				DC5EA4EB297AB3BA0027B25E /* HeaderConsts.swift in Sources */,
 				DC5EA4E8297AACA30027B25E /* QRCashService.swift in Sources */,
@@ -303,14 +345,20 @@
 				DC33744329792BC600BF3D6C /* QRCashApp.swift in Sources */,
 				DC5EA4ED297AB4C90027B25E /* SessionData.swift in Sources */,
 				DC091D412985283500F84D47 /* AtmCodeParentView.swift in Sources */,
+				DCCA6233298BA2A900062D8E /* AtmCode.swift in Sources */,
 				DC5EA4F52980FE840027B25E /* Colors.swift in Sources */,
 				DC5EA4F32980FE180027B25E /* CardSelectView.swift in Sources */,
 				DC091D432985972700F84D47 /* AtmCodeDataModel.swift in Sources */,
 				DC5EA4DC297A93160027B25E /* DepositView.swift in Sources */,
+				DCCA6237298BBBF400062D8E /* OperationCreationDataModel.swift in Sources */,
 				DC091D3B29840AE600F84D47 /* AmountInputView.swift in Sources */,
 				DC091D502987AD2100F84D47 /* Call.swift in Sources */,
 				DC5EA4E3297AA23A0027B25E /* HttpMethod.swift in Sources */,
 				DC5EA4DF297A9C080027B25E /* CardSummary.swift in Sources */,
+				DCCA6239298E455500062D8E /* WithdrawalConfirmView.swift in Sources */,
+				DCCA62412990054800062D8E /* WithdrawalConfirmDataModel.swift in Sources */,
+				DCCA6231298BA24900062D8E /* AtmCodeStatus.swift in Sources */,
+				DCCA6243299005FD00062D8E /* WithdrawalConfirmation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +495,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,6 +525,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

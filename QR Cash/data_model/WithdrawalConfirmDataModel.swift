@@ -4,10 +4,13 @@ class WithdrawalConfirmDataModel: ObservableObject, Statused {
     
     @Published
     private(set) var status: DataModelStatus = .initializing
+    
     @Published
     private(set) var needOtp: Bool = true
+    
     @Published
     private(set) var otpCodeLength: Int = 0
+    
     @Published
     var operationIsConfirmed: Bool = false
     
@@ -35,5 +38,9 @@ class WithdrawalConfirmDataModel: ObservableObject, Statused {
         operationIsConfirmed = true
         
         status = .done
+    }
+    
+    func setOtpCodeLength(codeLenth: Int) {
+        otpCodeLength = codeLenth
     }
 }

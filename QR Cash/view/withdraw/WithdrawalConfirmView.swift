@@ -15,25 +15,10 @@ struct WithdrawalConfirmView: View {
             .padding(.bottom, 32)
     }
     
-    var cardSection: some View {
-        VStack(alignment: .leading) {
-            Text("Карта списания")
-                .font(.system(size: 14))
-                .foregroundColor(.secondary)
-                .padding(.bottom, 0)
-                .multilineTextAlignment(.leading)
-            
-            CardSummaryView(card: operation.operation.card)
-            
-            CommonViews.horizontalDashedLine
-                .padding(.bottom, 28)
-        }
-    }
-    
     var withdrawalDetails: some View {
         ScrollView(showsIndicators: false) {
             header
-            cardSection
+            CardSectionView(card: operation.operation.card)
             
             DetailView(header: "Сумма снятия", value: operation.operation.amount.description + ",00 ₽")
             DetailView(header: "Комиссия", value: operation.commission.description + ",00 ₽")
@@ -73,34 +58,15 @@ struct WithdrawalConfirmView: View {
                 
                 withdrawalDetails
                     .navigationDestination(isPresented: $dataModel.operationIsConfirmed) {
-                        EmptyView()
+                        OtpCodeView(
+                            sessionData: sessionData,
+                            operation: operation,
+                            confirmDataModel: dataModel
+                        )
                     }
             }
             .padding([.leading, .trailing], 16)
             .navigationBarBackButtonHidden(true)
-        }
-    }
-}
-
-struct DetailView: View {
-    let header: String
-    let value: String
-    
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(header)
-                .font(.system(size: 14))
-                .foregroundColor(.secondary)
-                .padding(.bottom, 8)
-                .multilineTextAlignment(.leading)
-            
-            Text(value)
-                .font(.system(size: 16))
-            
-            CommonViews.horizontalDashedLine
-                .padding(.bottom, 28)
-            
         }
     }
 }

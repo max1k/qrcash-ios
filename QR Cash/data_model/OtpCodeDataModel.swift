@@ -1,32 +1,26 @@
 import Foundation
 
 
-class AtmCodeDataModel: ObservableObject {
-    
+class OtpCodeDataModel: ObservableObject {
     @Published
     private(set) var checkStatus: CodeCheckStatus = .initializing
     
     @Published
-    private(set) var checkResponse: AtmCodeResponse?
+    private(set) var checkResponse: OtpCodeResponse? = nil
     
     @Published
     var codeCheckIsPassed: Bool = false
     
-    
-    func atmCodeCheck(atmCodeRequest: AtmCodeRequest, sessionData: SessionData) {
+    func otpCodeCheck(request: OtpCodeRequest, sessionData: SessionData) {
         guard checkStatus != .loading else { return }
         checkStatus = .loading
         
-        let _ = qrCashService.atmCodeCheck(atmCodeRequest: atmCodeRequest, sessionData: sessionData)
-            .onResult(handleAtmCodeResponse)
-            .onError(handleAtmCodeError)
+        let _ = qrCashService.otpCodeCheck(otpCodeRequest: request, sessionData: sessionData)
+            .onResult(handleResponse)
+            .onError(handleError)
     }
     
-    private func handleAtmCodeError(error: Error) {
-        checkStatus = .error
-    }
-    
-    private func handleAtmCodeResponse(response: AtmCodeResponse) {
+    func handleResponse(response: OtpCodeResponse) {
         checkResponse = response
         
         if (response.success) {
@@ -36,12 +30,16 @@ class AtmCodeDataModel: ObservableObject {
         }
         
         if let messageCode = response.messageCode {
-            if (messageCode == .invalidAtmCode) {
+            if (messageCode == .invalidOtpCode) {
                 checkStatus = .invalidCode
                 return
             }
         }
         
+        checkStatus = .error
+    }
+    
+    func handleError(error: Error) {
         checkStatus = .error
     }
 }

@@ -3,9 +3,14 @@ import Foundation
 
 class CardListDataModel: ObservableObject, Statused {
     
-    @Published private(set) var cards: [Card] = []
-    @Published private(set) var selectedCard: Card?
-    @Published private(set) var status: DataModelStatus = .initializing
+    @Published
+    private(set) var cards: [Card] = []
+    
+    @Published
+    private(set) var selectedCard: Card?
+    
+    @Published
+    private(set) var status: DataModelStatus = .initializing
     
     
     func getCards(sessionData: SessionData) {

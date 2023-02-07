@@ -1,56 +1,18 @@
 import SwiftUI
 
-struct AtmCodeParentView: View {
+struct OtpCodeView: View {
     let sessionData: SessionData
-    let card: Card
-    let amount: Decimal
-    let codeLength: Int
+    let operation: OperationWithCommission
+    let confirmDataModel: WithdrawalConfirmDataModel
     
-    @StateObject
-    private var dataModel: OperationCreationDataModel = OperationCreationDataModel()
-    
-    var body: some View {
-        Group {
-            switch dataModel.status {
-            case .done:
-                ATMCodeInputView(
-                    sessionData: sessionData,
-                    operation: Operation(
-                        card: card,
-                        type: .withdraw,
-                        orderId: dataModel.orderId!,
-                        amount: amount
-                    ),
-                    codeLength: codeLength
-                )
-            case .loading, .initializing:
-                ProgressView()
-            case .error:
-                WithdrawErrorView()
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .onAppear(perform: createOperationRequest)
+    init(sessionData: SessionData, operation: OperationWithCommission, confirmDataModel: WithdrawalConfirmDataModel) {
+        self.sessionData = sessionData
+        self.operation = operation
+        self.confirmDataModel = confirmDataModel
     }
     
-    func createOperationRequest() {
-        let request = WithdrawalOperationRequest(
-            atmId: sessionData.atmId,
-            amount: amount,
-            publicId: card.publicId,
-            commission: amount / 100
-        )
-        dataModel.createOrder(request: request, sessionData: sessionData)
-    }
-}
-
-struct ATMCodeInputView: View {
-    let sessionData: SessionData
-    let operation: Operation
-    let codeLength: Int
-    
     @StateObject
-    private var dataModel: AtmCodeDataModel = AtmCodeDataModel()
+    private var dataModel: OtpCodeDataModel = OtpCodeDataModel()
     
     @State
     private var code: String = ""
@@ -59,7 +21,7 @@ struct ATMCodeInputView: View {
     private var codeFocused: Bool
     
     var header: some View {
-        Text("Введите код с экрана\nбанкомата")
+        Text("Подтвердите операцию\nкодом из СМС")
             .font(.system(size: 22))
             .fontWeight(.bold)
             .multilineTextAlignment(.center)
@@ -116,35 +78,32 @@ struct ATMCodeInputView: View {
                 
             }
             .padding([.leading, .trailing], 16)
+            .navigationBarBackButtonHidden(true)
             .navigationDestination(isPresented: $dataModel.codeCheckIsPassed) {
-                WithdrawalConfirmView(
-                    sessionData: sessionData,
-                    operation: OperationWithCommission(
-                        operation: operation,
-                        commission: dataModel.checkResponse?.commission ?? 0,
-                        describedType: .withdraw
-                    )
-                )
+                OperationCompletedView(operation: operation)
             }
         }
     }
     
-    private func onCodeChange(_ newValue: String) {
-        if (newValue.count == codeLength) {
-            let atmCodeRequest = AtmCodeRequest(orderId: operation.orderId, code: code)
+    private func onCodeChange(newValue: String) {
+        if (newValue.count == confirmDataModel.otpCodeLength) {
+            let otpCodeRequest = OtpCodeRequest(orderId: operation.operation.orderId, otpCode: code)
             
-            dataModel.atmCodeCheck(atmCodeRequest: atmCodeRequest, sessionData: sessionData)
+            dataModel.otpCodeCheck(request: otpCodeRequest, sessionData: sessionData)
             code = ""
         }
     }
 }
 
-struct AtmCodeView_Previews: PreviewProvider {
+struct OtpCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        ATMCodeInputView(
+        let datamodel = WithdrawalConfirmDataModel()
+        datamodel.setOtpCodeLength(codeLenth: 6)
+        
+        return OtpCodeView(
             sessionData: TestData.sessionData,
-            operation: TestData.withdrawOperation,
-            codeLength: 4
+            operation: TestData.withdrawOperationWithCommission,
+            confirmDataModel: datamodel
         )
     }
 }

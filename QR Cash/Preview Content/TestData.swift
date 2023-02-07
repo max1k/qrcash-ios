@@ -22,5 +22,5 @@ class TestData {
     
     static let withdrawOperation = Operation(card: card, type: .withdraw, orderId: "111", amount: 100)
     
-    static let withdrawOperationWithCommission = OperationWithCommission(operation: withdrawOperation, commission: 10.0)
+    static let withdrawOperationWithCommission = OperationWithCommission(operation: withdrawOperation, commission: 10.0, describedType: .withdraw)
 }

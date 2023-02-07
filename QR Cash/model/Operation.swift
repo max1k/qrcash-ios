@@ -6,6 +6,11 @@ enum OperationType: String, Encodable {
     case deposit = "cashDeposit"
 }
 
+enum OperationTypeDescribed: String {
+    case withdraw = "Выдача наличных"
+    case deposit = "Внесение наличных"
+}
+
 struct Operation {
     let card: Card
     let type: OperationType
@@ -16,6 +21,7 @@ struct Operation {
 struct OperationWithCommission {
     let operation: Operation
     let commission: Decimal
+    let describedType: OperationTypeDescribed
 }
 
 //MARK: Operation request

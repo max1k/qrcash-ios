@@ -3,8 +3,11 @@ import Foundation
 
 class OperationCreationDataModel: ObservableObject, Statused {
     
-    @Published private(set) var orderId: String?
-    @Published private(set) var status: DataModelStatus = .initializing
+    @Published
+    private(set) var orderId: String?
+    
+    @Published
+    private(set) var status: DataModelStatus = .initializing
     
     
     func createOrder(request: WithdrawalOperationRequest, sessionData: SessionData) {

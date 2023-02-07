@@ -28,13 +28,11 @@ struct WithdrawErrorView: View {
             Text("Что делать дальше?")
                 .font(.system(size: 24))
                 .fontWeight(.bold)
-                .foregroundColor(.black)
                 .padding(.top, 24)
                 .padding(.bottom, 8)
             
             Text("Пожалуйста, обратитесь в банк по телефону [8 800 100 24 24](tel://88001002424) за подробной информацией.")
                 .font(.system(size: 16))
-                .foregroundColor(.black)
                 .multilineTextAlignment(.leading)
                 .lineLimit(3, reservesSpace: true)
                 .padding([.leading, .trailing], 16)
@@ -91,7 +89,8 @@ struct WithdrawErrorView: View {
             
             ZStack(alignment: .top) {
                 RoundedRectangle(cornerRadius: 24)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color(UIColor.systemBackground))
+                    .padding(.bottom, -30)
                 
                 VStack {
                     whatsNextSection

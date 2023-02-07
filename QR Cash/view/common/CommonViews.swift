@@ -37,3 +37,45 @@ class CommonViews {
             .padding(.top, 0)
     }
 }
+
+struct DetailView: View {
+    let header: String
+    let value: String
+    
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(header)
+                .font(.system(size: 14))
+                .foregroundColor(.secondary)
+                .padding(.bottom, 8)
+                .multilineTextAlignment(.leading)
+            
+            Text(value)
+                .font(.system(size: 16))
+            
+            CommonViews.horizontalDashedLine
+                .padding(.bottom, 28)
+            
+        }
+    }
+}
+
+struct CardSectionView: View {
+    let card: Card
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Карта списания")
+                .font(.system(size: 14))
+                .foregroundColor(.secondary)
+                .padding(.bottom, 0)
+                .multilineTextAlignment(.leading)
+            
+            CardSummaryView(card: card)
+            
+            CommonViews.horizontalDashedLine
+                .padding(.bottom, 28)
+        }
+    }
+}

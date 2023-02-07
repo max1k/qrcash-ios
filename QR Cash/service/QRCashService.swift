@@ -11,6 +11,7 @@ class QRCashService {
     private let createUri = "/create"
     private let atmCheckUri = "/atm-code/check"
     private let withdrawalConfirmUri = "/cash-withdrawal/confirm"
+    private let otpCheckUri = "/otp-code/check"
 
     
     
@@ -59,5 +60,9 @@ class QRCashService {
     
     func withdrawalConfirm(request: WithdrawalConfirmationRequest, sessionData: SessionData ) -> Call<WithdrawalConfirmationResponse> {
         return apiPostCall(requestBody: request, sessionData: sessionData, url: baseUrl + withdrawalConfirmUri)
+    }
+    
+    func otpCodeCheck(otpCodeRequest: OtpCodeRequest, sessionData: SessionData) -> Call<OtpCodeResponse> {
+        return apiPostCall(requestBody: otpCodeRequest, sessionData: sessionData, url: baseUrl + otpCheckUri)
     }
 }

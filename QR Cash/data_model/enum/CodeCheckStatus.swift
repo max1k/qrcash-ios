@@ -1,6 +1,6 @@
 import Foundation
 
-enum AtmCodeStatus {
+enum CodeCheckStatus {
     case initializing
     case loading
     case invalidCode

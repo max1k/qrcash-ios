@@ -12,6 +12,12 @@ class AtmCodeDataModel: ObservableObject {
     @Published
     var codeCheckIsPassed: Bool = false
     
+    @Published
+    var codeCheckIsFailed: Bool = false
+    
+    @Published
+    var unexpectedError: Bool = false
+    
     
     func atmCodeCheck(atmCodeRequest: AtmCodeRequest, sessionData: SessionData) {
         guard checkStatus != .loading else { return }
@@ -23,6 +29,7 @@ class AtmCodeDataModel: ObservableObject {
     }
     
     private func handleAtmCodeError(error: Error) {
+        unexpectedError = true
         checkStatus = .error
     }
     
@@ -40,7 +47,14 @@ class AtmCodeDataModel: ObservableObject {
                 checkStatus = .invalidCode
                 return
             }
+            
+            if (messageCode == .allAttemptsAtmCodeExhausted) {
+                codeCheckIsFailed = true
+                checkStatus = .attemptsExhausted
+                return
+            }
         }
+         
         
         checkStatus = .error
     }

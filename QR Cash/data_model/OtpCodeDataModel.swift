@@ -11,6 +11,12 @@ class OtpCodeDataModel: ObservableObject {
     @Published
     var codeCheckIsPassed: Bool = false
     
+    @Published
+    var codeCheckIsFailed: Bool = false
+    
+    @Published
+    var unexpectedError: Bool = false
+    
     func otpCodeCheck(request: OtpCodeRequest, sessionData: SessionData) {
         guard checkStatus != .loading else { return }
         checkStatus = .loading
@@ -34,12 +40,19 @@ class OtpCodeDataModel: ObservableObject {
                 checkStatus = .invalidCode
                 return
             }
+            
+            if (messageCode == .allAttemptsOtpCodeExhausted) {
+                codeCheckIsFailed = true
+                checkStatus = .attemptsExhausted
+                return
+            }
         }
         
         checkStatus = .error
     }
     
     func handleError(error: Error) {
+        unexpectedError = true
         checkStatus = .error
     }
 }

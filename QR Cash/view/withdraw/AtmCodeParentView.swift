@@ -126,6 +126,12 @@ struct ATMCodeInputView: View {
                     )
                 )
             }
+            .navigationDestination(isPresented: $dataModel.codeCheckIsFailed) {
+                ConfirmationErrorView()
+            }
+            .navigationDestination(isPresented: $dataModel.unexpectedError) {
+                WithdrawErrorView()
+            }
         }
     }
     

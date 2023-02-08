@@ -82,6 +82,12 @@ struct OtpCodeView: View {
             .navigationDestination(isPresented: $dataModel.codeCheckIsPassed) {
                 OperationCompletedView(operation: operation)
             }
+            .navigationDestination(isPresented: $dataModel.codeCheckIsFailed) {
+                ConfirmationErrorView()
+            }
+            .navigationDestination(isPresented: $dataModel.unexpectedError) {
+                WithdrawErrorView()
+            }
         }
     }
     

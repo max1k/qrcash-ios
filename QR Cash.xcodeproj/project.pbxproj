@@ -44,6 +44,7 @@
 		DCCA62472991395700062D8E /* OtpCodeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA62462991395700062D8E /* OtpCodeDataModel.swift */; };
 		DCCA62492991705400062D8E /* OperationCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA62482991705400062D8E /* OperationCompletedView.swift */; };
 		DCCA624B2991713700062D8E /* OtpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCA624A2991713700062D8E /* OtpCode.swift */; };
+		DCDF46C429938A7600E0428A /* ConfirmationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDF46C329938A7600E0428A /* ConfirmationErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		DCCA62462991395700062D8E /* OtpCodeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpCodeDataModel.swift; sourceTree = "<group>"; };
 		DCCA62482991705400062D8E /* OperationCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCompletedView.swift; sourceTree = "<group>"; };
 		DCCA624A2991713700062D8E /* OtpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpCode.swift; sourceTree = "<group>"; };
+		DCDF46C329938A7600E0428A /* ConfirmationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */,
+				DCDF46C329938A7600E0428A /* ConfirmationErrorView.swift */,
 			);
 			path = error;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				DC5EA4E8297AACA30027B25E /* QRCashService.swift in Sources */,
 				DC091D3D298410B400F84D47 /* CommonViews.swift in Sources */,
 				DC091D4E29878A4600F84D47 /* DataModelStatus.swift in Sources */,
+				DCDF46C429938A7600E0428A /* ConfirmationErrorView.swift in Sources */,
 				DCCA624B2991713700062D8E /* OtpCode.swift in Sources */,
 				DC33744529792BC600BF3D6C /* OperationChooseView.swift in Sources */,
 				DC5EA4DA297A92A90027B25E /* WithdrawalView.swift in Sources */,
@@ -509,8 +513,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,8 +543,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

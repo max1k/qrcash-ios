@@ -21,7 +21,7 @@
 		DC33744729792BC700BF3D6C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC33744629792BC700BF3D6C /* Assets.xcassets */; };
 		DC33744A29792BC700BF3D6C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC33744929792BC700BF3D6C /* Preview Assets.xcassets */; };
 		DC5EA4DA297A92A90027B25E /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */; };
-		DC5EA4DC297A93160027B25E /* DepositView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4DB297A93160027B25E /* DepositView.swift */; };
+		DC5EA4DC297A93160027B25E /* DepositParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4DB297A93160027B25E /* DepositParentView.swift */; };
 		DC5EA4DF297A9C080027B25E /* CardSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4DE297A9C080027B25E /* CardSummary.swift */; };
 		DC5EA4E3297AA23A0027B25E /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4E2297AA23A0027B25E /* HttpMethod.swift */; };
 		DC5EA4E5297AA2570027B25E /* RestApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5EA4E4297AA2570027B25E /* RestApiRequest.swift */; };
@@ -63,7 +63,7 @@
 		DC33744629792BC700BF3D6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC33744929792BC700BF3D6C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC5EA4D9297A92A90027B25E /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
-		DC5EA4DB297A93160027B25E /* DepositView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositView.swift; sourceTree = "<group>"; };
+		DC5EA4DB297A93160027B25E /* DepositParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositParentView.swift; sourceTree = "<group>"; };
 		DC5EA4DE297A9C080027B25E /* CardSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSummary.swift; sourceTree = "<group>"; };
 		DC5EA4E2297AA23A0027B25E /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		DC5EA4E4297AA2570027B25E /* RestApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApiRequest.swift; sourceTree = "<group>"; };
@@ -176,6 +176,7 @@
 				DCCA623B298E45B400062D8E /* deposit */,
 				DCCA623A298E459400062D8E /* withdraw */,
 				DC33744429792BC600BF3D6C /* OperationChooseView.swift */,
+				DCCA62482991705400062D8E /* OperationCompletedView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -260,7 +261,6 @@
 				DC091D402985283500F84D47 /* AtmCodeParentView.swift */,
 				DCCA6238298E455500062D8E /* WithdrawalConfirmView.swift */,
 				DCCA6244299138AA00062D8E /* OtpCodeView.swift */,
-				DCCA62482991705400062D8E /* OperationCompletedView.swift */,
 			);
 			path = withdraw;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 		DCCA623B298E45B400062D8E /* deposit */ = {
 			isa = PBXGroup;
 			children = (
-				DC5EA4DB297A93160027B25E /* DepositView.swift */,
+				DC5EA4DB297A93160027B25E /* DepositParentView.swift */,
 			);
 			path = deposit;
 			sourceTree = "<group>";
@@ -367,7 +367,7 @@
 				DC5EA4F32980FE180027B25E /* CardSelectView.swift in Sources */,
 				DC091D432985972700F84D47 /* AtmCodeDataModel.swift in Sources */,
 				DCCA6245299138AA00062D8E /* OtpCodeView.swift in Sources */,
-				DC5EA4DC297A93160027B25E /* DepositView.swift in Sources */,
+				DC5EA4DC297A93160027B25E /* DepositParentView.swift in Sources */,
 				DCCA62472991395700062D8E /* OtpCodeDataModel.swift in Sources */,
 				DCCA6237298BBBF400062D8E /* OperationCreationDataModel.swift in Sources */,
 				DC091D3B29840AE600F84D47 /* AmountInputView.swift in Sources */,

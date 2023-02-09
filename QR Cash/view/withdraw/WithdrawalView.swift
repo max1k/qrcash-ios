@@ -68,22 +68,17 @@ struct WithdrawalView: View {
     }
     
     var body: some View {
-        GeometryReader { reader in
-            ScrollView {
-                VStack(alignment: .leading) {
-                    CommonViews.navigationBack
-                    header
-                    
-                    CardSelectView(dataModel: dataModel)
-                    AmountInputView(amountChangeListener: onAmountChange)
-                    
-                    CommonViews.withdrawalTroublesHotline
-                    continueButton
-                }
-                .padding(16)
-                .frame(minHeight: reader.size.height)
-            }
+        VStack(alignment: .leading) {
+            CommonViews.navigationBack
+            header
+            
+            CardSelectView(operationType: .withdraw, dataModel: dataModel)
+            AmountInputView(amountChangeListener: onAmountChange)
+            
+            CommonViews.withdrawalTroublesHotline
+            continueButton
         }
+        .padding(16)
     }
     
     private func onAmountChange(_ newValue: Decimal) {

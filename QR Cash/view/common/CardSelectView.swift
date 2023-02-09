@@ -1,12 +1,13 @@
 import SwiftUI
 
 struct CardSelectView: View {
+    let operationType: OperationType
     
     @StateObject
     var dataModel: CardListDataModel
     
     var body: some View {
-        Text("Карта списания")
+        Text(operationType == .withdraw ? "Карта списания" : "Карта для зачисления")
             .font(.system(size: 16))
             .foregroundColor(.secondary)
             .padding(.bottom, 8)
@@ -49,6 +50,6 @@ struct CardSelectView: View {
 
 struct CardSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        CardSelectView(dataModel: TestData.cardListDataModel)
+        CardSelectView(operationType: .withdraw, dataModel: TestData.cardListDataModel)
     }
 }

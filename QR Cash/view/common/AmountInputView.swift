@@ -65,7 +65,7 @@ struct AmountInputView: View {
                     addAmount(1000)
                 }
             
-            Text("5000 ₽")
+            Text("5 000 ₽")
                 .padding(10)
                 .background(
                     RoundedRectangle(cornerRadius: 8)

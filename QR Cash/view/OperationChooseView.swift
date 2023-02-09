@@ -5,17 +5,19 @@ struct OperationChooseView: View {
     let sessionData = SessionData(uncId: "1234567", mdmId: "6543210", atmId: "6665551")
     
     var body: some View {
-        VStack {
-            OperationChooseHeaderView()
-            
-            OperationTypeView(sessionData: sessionData)
-            
-            OperationChooseFooterView()
-            
-            Spacer()
+        NavigationStack {
+            VStack {
+                OperationChooseHeaderView()
+                
+                OperationTypeView(sessionData: sessionData)
+                
+                OperationChooseFooterView()
+                
+                Spacer()
+            }
+            .navigationBarBackButtonHidden(true)
+            .padding(16)
         }
-        .navigationBarBackButtonHidden(true)
-        .padding(16)
     }
 }
 
@@ -54,7 +56,7 @@ struct OperationTypeView: View {
             }
             .buttonStyle(.plain)
             
-            NavigationLink(destination: DepositView()) {
+            NavigationLink(destination: DepositParentView(sessionData: sessionData)) {
                 ZStack(alignment: .topLeading) {
                     RoundedRectangle(cornerRadius: 10)
                         .foregroundColor(Colors.lightGray)

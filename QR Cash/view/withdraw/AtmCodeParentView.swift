@@ -40,7 +40,7 @@ struct AtmCodeParentView: View {
             publicId: card.publicId,
             commission: amount / 100
         )
-        dataModel.createOrder(request: request, sessionData: sessionData)
+        dataModel.createOperation(request: request, sessionData: sessionData)
     }
 }
 

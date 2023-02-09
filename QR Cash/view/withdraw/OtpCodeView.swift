@@ -86,7 +86,7 @@ struct OtpCodeView: View {
                 ConfirmationErrorView()
             }
             .navigationDestination(isPresented: $dataModel.unexpectedError) {
-                WithdrawErrorView()
+                OperationErrorView(operationType: .withdraw)
             }
         }
     }

@@ -16,7 +16,7 @@ struct WithdrawalParentView: View {
             case .loading, .initializing:
                 ProgressView()
             default:
-                WithdrawErrorView()
+                OperationErrorView(operationType: .withdraw)
             }
         }
         .navigationBarBackButtonHidden(true)

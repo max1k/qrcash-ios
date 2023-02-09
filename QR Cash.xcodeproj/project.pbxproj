@@ -13,7 +13,7 @@
 		DC091D432985972700F84D47 /* AtmCodeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D422985972700F84D47 /* AtmCodeDataModel.swift */; };
 		DC091D452985982600F84D47 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D442985982600F84D47 /* Operation.swift */; };
 		DC091D472985A00000F84D47 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D462985A00000F84D47 /* Properties.swift */; };
-		DC091D4A29864DDA00F84D47 /* WithdrawErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */; };
+		DC091D4A29864DDA00F84D47 /* OperationErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4929864DDA00F84D47 /* OperationErrorView.swift */; };
 		DC091D4E29878A4600F84D47 /* DataModelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4D29878A4600F84D47 /* DataModelStatus.swift */; };
 		DC091D502987AD2100F84D47 /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC091D4F2987AD2100F84D47 /* Call.swift */; };
 		DC33744329792BC600BF3D6C /* QRCashApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC33744229792BC600BF3D6C /* QRCashApp.swift */; };
@@ -54,7 +54,7 @@
 		DC091D422985972700F84D47 /* AtmCodeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtmCodeDataModel.swift; sourceTree = "<group>"; };
 		DC091D442985982600F84D47 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		DC091D462985A00000F84D47 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
-		DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawErrorView.swift; sourceTree = "<group>"; };
+		DC091D4929864DDA00F84D47 /* OperationErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationErrorView.swift; sourceTree = "<group>"; };
 		DC091D4D29878A4600F84D47 /* DataModelStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelStatus.swift; sourceTree = "<group>"; };
 		DC091D4F2987AD2100F84D47 /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
 		DC33743F29792BC600BF3D6C /* QR Cash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "QR Cash.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,7 @@
 		DC091D4B2986504400F84D47 /* error */ = {
 			isa = PBXGroup;
 			children = (
-				DC091D4929864DDA00F84D47 /* WithdrawErrorView.swift */,
+				DC091D4929864DDA00F84D47 /* OperationErrorView.swift */,
 				DCDF46C329938A7600E0428A /* ConfirmationErrorView.swift */,
 			);
 			path = error;
@@ -346,7 +346,7 @@
 				DC5EA4E5297AA2570027B25E /* RestApiRequest.swift in Sources */,
 				DCCA623D298EA5E600062D8E /* CardSummaryView.swift in Sources */,
 				DCCA6235298BA49B00062D8E /* ResponseMessageCode.swift in Sources */,
-				DC091D4A29864DDA00F84D47 /* WithdrawErrorView.swift in Sources */,
+				DC091D4A29864DDA00F84D47 /* OperationErrorView.swift in Sources */,
 				DC5EA4EB297AB3BA0027B25E /* HeaderConsts.swift in Sources */,
 				DC5EA4E8297AACA30027B25E /* QRCashService.swift in Sources */,
 				DC091D3D298410B400F84D47 /* CommonViews.swift in Sources */,

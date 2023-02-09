@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct WithdrawErrorView: View {
+struct OperationErrorView: View {
+    let operationType: OperationType
     
     private var headerSection: some View {
         Group {
@@ -10,7 +11,8 @@ struct WithdrawErrorView: View {
                 .padding([.top, .bottom], 40)
                 .foregroundColor(.black)
             
-            Text("Невозможно снять наличные")
+            let operationTypeText = operationType == .withdraw ? "снять" : "внести"
+            Text("Невозможно \(operationTypeText) наличные")
                 .font(.system(size: 22))
                 .fontWeight(.bold)
                 .padding(.bottom, 8)
@@ -110,6 +112,6 @@ struct WithdrawErrorView: View {
 
 struct WithdrawErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        WithdrawErrorView()
+        OperationErrorView(operationType: .withdraw)
     }
 }

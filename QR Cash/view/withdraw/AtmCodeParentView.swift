@@ -26,7 +26,7 @@ struct AtmCodeParentView: View {
             case .loading, .initializing:
                 ProgressView()
             case .error:
-                WithdrawErrorView()
+                OperationErrorView(operationType: .withdraw)
             }
         }
         .navigationBarBackButtonHidden(true)
@@ -130,7 +130,7 @@ struct ATMCodeInputView: View {
                 ConfirmationErrorView()
             }
             .navigationDestination(isPresented: $dataModel.unexpectedError) {
-                WithdrawErrorView()
+                OperationErrorView(operationType: .withdraw)
             }
         }
     }

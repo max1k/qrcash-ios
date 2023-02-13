@@ -72,7 +72,7 @@ struct ATMCodeInputView: View {
             let codeIsInvalid = dataModel.checkStatus == .invalidCode
             let mainColor = codeIsInvalid ? .red : Colors.lightBlue
             VStack {
-                SecureField("Код", text: $code)
+                TextField("Код", text: $code)
                     .keyboardType(.numberPad)
                     .multilineTextAlignment(.center)
                     .onChange(of: code, perform: onCodeChange)

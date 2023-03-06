@@ -33,7 +33,7 @@ struct OperationErrorView: View {
                 .padding(.top, 24)
                 .padding(.bottom, 8)
             
-            Text("Пожалуйста, обратитесь в банк по телефону [8 800 100 24 24](tel://88001002424) за подробной информацией.")
+            Text("Пожалуйста, обратитесь в банк по телефону [8 800 123 45 67](tel://88001234567) за подробной информацией.")
                 .font(.system(size: 16))
                 .multilineTextAlignment(.leading)
                 .lineLimit(3, reservesSpace: true)
@@ -49,7 +49,7 @@ struct OperationErrorView: View {
     
     private var callUsItem: some View {
         Button {
-            UIApplication.shared.open(URL(string: "tel://88001002424")!)
+            UIApplication.shared.open(URL(string: "tel://88001234567")!)
         } label: {
             HStack(alignment: .center) {
                 ZStack(alignment: .center) {

@@ -11,7 +11,7 @@ struct Line: Shape {
 
 class CommonViews {
     static var withdrawalTroublesHotline: some View {
-        Text("Если у вас возникли проблемы со снятием наличных, звоните по номеру:\n[8 800 100-24-24](tel://88001002424)")
+        Text("Если у вас возникли проблемы со снятием наличных, звоните по номеру:\n[8 800 123-45-67](tel://88001234567)")
             .font(.system(size: 16))
             .multilineTextAlignment(.leading)
     }
